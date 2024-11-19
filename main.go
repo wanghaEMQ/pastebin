@@ -14,7 +14,7 @@ import (
 
 const (
 	uploadDir  = "./uploads/"
-	baseURL    = "http://localhost:8080/"
+	baseURL    = "http://ServerIP:9000/"
 	urlLength  = 8
 )
 
@@ -32,8 +32,8 @@ func main() {
 	http.HandleFunc("/view/", handleView)
 	http.Handle("/uploads/", http.StripPrefix("/uploads/", http.FileServer(http.Dir(uploadDir))))
 
-	fmt.Println("Server started at :8080")
-	log.Fatal(http.ListenAndServe(":8080", nil))
+	fmt.Println("Server started at :9000")
+	log.Fatal(http.ListenAndServe(":9000", nil))
 }
 
 func handleIndex(w http.ResponseWriter, r *http.Request) {
