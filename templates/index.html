@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pastebin</title>
+</head>
+<body>
+    <h1>Pastebin</h1>
+    <form action="/upload" method="POST" enctype="multipart/form-data">
+        <h2>Upload File</h2>
+        <input type="file" name="file"><br><br>
+        <h2>Or Paste Text</h2>
+        <textarea name="text" rows="10" cols="50"></textarea><br><br>
+        <button type="submit">Upload</button>
+    </form>
+</body>
+</html>
