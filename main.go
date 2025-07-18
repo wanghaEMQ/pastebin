@@ -67,7 +67,7 @@ func handleUpload(w http.ResponseWriter, r *http.Request) {
         // Generate a filename with the original name and a random suffix
         originalName := handler.Filename
 		currentTime := time.Now().Format("20060102_150405")
-		filename := fmt.Sprintf("%s_%s%s", originalName[:len(originalName)-len(filepath.Ext(originalName))], currentTime, filepath.Ext(originalName))
+		filename := fmt.Sprintf("%s_%s", currentTime, originalName)
 
         destPath := filepath.Join(uploadDir, filename)
         destFile, err := os.Create(destPath)
@@ -88,7 +88,7 @@ func handleUpload(w http.ResponseWriter, r *http.Request) {
     text := r.FormValue("text")
     if text != "" {
 		currentTime := time.Now().Format("20060102_150405")
-		filename := fmt.Sprintf("%s_%s%s", generateID(), currentTime, ".txt")
+		filename := fmt.Sprintf("%s_%s%s", currentTime, generateID(), ".txt")
         destPath := filepath.Join(uploadDir, filename)
         err = os.WriteFile(destPath, []byte(text), 0644)
         if err != nil {
